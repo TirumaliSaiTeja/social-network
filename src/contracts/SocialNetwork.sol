@@ -5,5 +5,9 @@ contract SocialNetwork {
 
     constructor() public {
         name = "Social Network";
+
+        function createPost(string memory _content) public {
+            
+        }
     }
 }

@@ -28,7 +28,9 @@ contract('SocialNetwork', ([deployer, author, tipper]) => {
     let result, postCount
 
     before(async () => {
-      result = await socialNetwork.createPost('This is my first post', { from: author })
+      result = await socialNetwork.createPost('This is my first post', {
+        from: author,
+      })
       postCount = await socialNetwork.postCount()
     })
 
@@ -42,11 +44,7 @@ contract('SocialNetwork', ([deployer, author, tipper]) => {
       assert.equal(event.author, author, 'author is correct')
 
       // FAILURE: Post must have content
-      await socialNetwork.createPost('', { from: author }).should.be.rejected;
+      await socialNetwork.createPost('', { from: author }).should.be.rejected
     })
-
   })
 })
-
-})
-

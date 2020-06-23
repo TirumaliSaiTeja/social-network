@@ -31,8 +31,6 @@ contract SocialNetwork {
     }
 
     function createPost(string memory _content) public {
-        // Require valid content
-        require(bytes(_content).length > 0);
         // Increment the post count
         postCount++;
         // Create the post
@@ -42,8 +40,6 @@ contract SocialNetwork {
     }
 
     function tipPost(uint256 _id) public payable {
-        // Make sure the id is valid
-        require(_id > 0 && _id <= postCount);
         // Fetch the post
         Post memory _post = posts[_id];
         // Fetch the author
